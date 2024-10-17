@@ -50,23 +50,23 @@ const sendEmail = async (req, res) => {
     // Formatear la fecha para el correo
     const fechaFormateada = format(new Date(eventDate), 'dd/MM/yyyy');
 
-    // Convertir la fecha de envío en un objeto Date
+    // Programar el envío del correo para la fecha del evento
     const date = new Date(eventDateSend);
-
-    // Programar el correo para la fecha específica
+    console.log(`Correo programado para: ${date}`); // Depuración
     schedule.scheduleJob(date, async function () {
+      console.log(`Ejecutando tarea programada para enviar correo a: ${email}`); // Depuración
+
       try {
         // Enviar el correo y esperar a que se complete
-        await sendReminderEmail(
-          email,
-          `Recordatorio: ${eventName} para el día: ${fechaFormateada}`,
+        await sendReminderEmail(email,`Recordatorio: ${eventName} para el día: ${fechaFormateada}`,
           text
         );
-        console.log('Correo programado correctamente.');
+        console.log('Correo programado enviado correctamente.');
       } catch (error) {
         console.error('Error al enviar el correo programado:', error);
       }
     });
+
 
     // Respuesta exitosa
     res.status(200).json({
