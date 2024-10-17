@@ -3,63 +3,80 @@ const { format } = require('date-fns');
 const schedule = require('node-schedule');
 const nodemailer = require('nodemailer');
 
-
-// Configuración de nodemailer con POP3/SMTP
+// Configuración de nodemailer
 const transporter = nodemailer.createTransport({
-  host: 'mail.girona.cl', // El servidor SMTP de tu proveedor de correo
-  port: 465, // El puerto SMTP, 465 para SSL, 587 para TLS
-  secure: true, // Usa true para SSL y false para TLS
+  host: 'mail.girona.cl',
+  port: 465, // Puerto SMTP para SSL
+  secure: true, // Usa SSL
   auth: {
-    user: process.env.EMAIL_USER, // Usa variables de entorno para el correo
-    pass: process.env.EMAIL_PASS  // Usa variables de entorno para la contraseña
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 
-// Función para enviar el correo electrónico
-const sendReminderEmail = (email, subject, text) => {
+// Función para enviar el correo, envuelto en una promesa
+const sendReminderEmail = async (email, subject, text) => {
   const mailOptions = {
-    from: process.env.EMAIL_USER, // El correo desde el que se enviará
+    from: process.env.EMAIL_USER,
     to: email,
-    subject: subject,
-    text: text
+    subject,
+    text
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log('Error al enviar el correo:', error);
-    } else {
-      console.log('Correo enviado: ' + info.response);
-    }
+  // Retornamos una promesa para manejar el envío correctamente
+  return new Promise((resolve, reject) => {
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error al enviar el correo:', error);
+        reject(error); // Rechaza la promesa si hay un error
+      } else {
+        console.log('Correo enviado:', info.response);
+        resolve(info); // Resuelve la promesa si el correo se envía correctamente
+      }
+    });
   });
 };
 
-// Función para manejar la solicitud de envío de correo
+// Función principal que maneja la solicitud de envío de correo
 const sendEmail = async (req, res) => {
-  const { email, eventName, eventDate, eventDateSend, text } = req.body; // Asegúrate de que req.body tenga estos datos
+  try {
+    const { email, eventName, eventDate, eventDateSend, text } = req.body;
 
-  if (!email || !eventName || !eventDate || !text || !eventDateSend) {
-    return res.status(400).send('Faltan datos requeridos');
+    // Verificación de los campos necesarios
+    if (!email || !eventName || !eventDate || !text || !eventDateSend) {
+      return res.status(400).send('Faltan datos requeridos');
+    }
+
+    // Formatear la fecha para el correo
+    const fechaFormateada = format(new Date(eventDate), 'dd/MM/yyyy');
+
+    // Convertir la fecha de envío en un objeto Date
+    const date = new Date(eventDateSend);
+
+    // Programar el correo para la fecha específica
+    schedule.scheduleJob(date, async function () {
+      try {
+        // Enviar el correo y esperar a que se complete
+        await sendReminderEmail(
+          email,
+          `Recordatorio: ${eventName} para el día: ${fechaFormateada}`,
+          text
+        );
+        console.log('Correo programado correctamente.');
+      } catch (error) {
+        console.error('Error al enviar el correo programado:', error);
+      }
+    });
+
+    // Respuesta exitosa
+    res.status(200).json({
+      ok: true,
+      msg: 'Correo programado correctamente.'
+    });
+  } catch (error) {
+    console.error('Error al procesar la solicitud:', error);
+    res.status(500).send('Error interno del servidor');
   }
-
-//formateo la fecha pa mostrarla mejor el en correo
-
-const fechaFormateada = format(new Date(eventDate), 'dd/MM/yyyy');
-
-  // Programar el envío del correo para la fecha del evento
-  const date = new Date(eventDateSend);
-  schedule.scheduleJob(date, function() {
-    sendReminderEmail(email, `Recordatorio: ${eventName} para el día:  ${fechaFormateada} `, text);
-  });
-
-
-  res.status(200).json({
-    ok: true,
-    msg: 'Correo programado correctamente.'
-})
-
-
-
-  
 };
 
 module.exports = { sendEmail };
