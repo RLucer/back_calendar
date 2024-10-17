@@ -32,6 +32,8 @@ const sendReminderEmail = async (email, subject, text) => {
 
 // Función principal que maneja la solicitud de envío de correo
 const sendEmail = async (req, res) => {
+
+  
   try {
     const { email, eventName, eventDate, eventDateSend, text } = req.body;
 
@@ -45,9 +47,10 @@ const sendEmail = async (req, res) => {
 
     // Programar el envío del correo para la fecha del evento
     const date = new Date(eventDateSend);
+
     console.log(`Correo programado para: ${date}`); // Depuración
 
-    schedule.scheduleJob(date, async function () {
+    schedule.scheduleJob(eventDateSend, async function () {
       console.log(`Ejecutando tarea programada para enviar correo a: ${email}`); // Depuración
 
       try {
