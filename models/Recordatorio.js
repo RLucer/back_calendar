@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const EventoSchema = Schema(
+const RecordatorioSchema = Schema(
     {
         title: {
             type: String,
@@ -32,10 +32,4 @@ const EventoSchema = Schema(
     }
 );
 
-EventoSchema.method('toJSON', function () {
-    const { __v, _id, ...object } = this.toObject();
-    object.id = _id;
-    return object;
-});
-
-module.exports = model('Evento', EventoSchema);
+module.exports = model('Recordatorio', RecordatorioSchemaSchema);
