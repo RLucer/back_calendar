@@ -1,0 +1,37 @@
+2024/12/01-00:34:34.864 a203 Reusing MANIFEST /Users/ricardo_lucero/calendar/backend-calendar-app/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/12/01-00:34:34.865 a203 Recovering log #4537
+2024/12/01-00:34:34.876 a203 Reusing old log /Users/ricardo_lucero/calendar/backend-calendar-app/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/004537.log 
+2024/12/01-00:34:37.013 13903 Level-0 table #4555: started
+2024/12/01-00:34:37.021 13903 Level-0 table #4555: 145409 bytes OK
+2024/12/01-00:34:37.027 13903 Delete type=0 #4537
+2024/12/01-00:34:37.028 13903 Manual compaction at level-0 from ' \x14\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' \x15\x01\x00\x00\x00' @ 0 : 0; will stop at ' \x14\x01\x00\x00\x05' @ 4852445 : 1
+2024/12/01-00:34:37.028 13903 Compacting 1@0 + 0@1 files
+2024/12/01-00:34:37.036 13903 Generated table #4556@0: 3059 keys, 62354 bytes
+2024/12/01-00:34:37.040 13903 Generated table #4557@0: 58 keys, 4268 bytes
+2024/12/01-00:34:37.040 13903 Compacted 1@0 + 0@1 files => 66622 bytes
+2024/12/01-00:34:37.049 13903 compacted to: files[ 0 2 18 0 0 0 0 ]
+2024/12/01-00:34:37.049 13903 Delete type=2 #4555
+2024/12/01-00:34:37.050 13903 Manual compaction at level-0 from ' \x14\x01\x00\x00\x05' @ 4852445 : 1 .. ' \x15\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/12/01-00:34:37.177 b203 Compacting 1@1 + 4@2 files
+2024/12/01-00:34:37.260 b203 Generated table #4558@1: 84454 keys, 2232272 bytes
+2024/12/01-00:34:37.356 b203 Generated table #4559@1: 98427 keys, 2251134 bytes
+2024/12/01-00:34:37.438 b203 Generated table #4560@1: 72028 keys, 2261778 bytes
+2024/12/01-00:34:37.479 b203 Generated table #4561@1: 16147 keys, 2162171 bytes
+2024/12/01-00:34:37.484 b203 Generated table #4562@1: 17 keys, 9044 bytes
+2024/12/01-00:34:37.484 b203 Compacted 1@1 + 4@2 files => 8916399 bytes
+2024/12/01-00:34:37.493 b203 compacted to: files[ 0 1 19 0 0 0 0 ]
+2024/12/01-00:34:37.493 b203 Delete type=2 #4549
+2024/12/01-00:34:37.493 b203 Delete type=2 #4548
+2024/12/01-00:34:37.493 b203 Delete type=2 #4556
+2024/12/01-00:34:37.493 b203 Delete type=2 #4551
+2024/12/01-00:34:37.494 b203 Delete type=2 #4550
+2024/12/01-00:34:41.580 1590b Compacting 1@1 + 7@2 files
+2024/12/01-00:34:41.619 1590b Generated table #4563@1: 14597 keys, 2145299 bytes
+2024/12/01-00:34:41.664 1590b Generated table #4564@1: 11838 keys, 2136548 bytes
+2024/12/01-00:34:41.750 1590b Generated table #4565@1: 77031 keys, 2219766 bytes
+2024/12/01-00:34:41.897 1590b Generated table #4566@1: 100757 keys, 2250656 bytes
+2024/12/01-00:34:42.063 1590b Generated table #4567@1: 100732 keys, 2251055 bytes
+2024/12/01-00:34:42.171 1590b Generated table #4568@1: 102680 keys, 2251517 bytes
+2024/12/01-00:34:42.230 1590b Generated table #4569@1: 60374 keys, 1375002 bytes
+2024/12/01-00:34:42.230 1590b Compacted 1@1 + 7@2 files => 14629843 bytes
+2024/12/01-00:34:42.238 1590b compacted to: files[ 0 0 19 0 0 0 0 ]

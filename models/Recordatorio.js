@@ -32,4 +32,4 @@ const RecordatorioSchema = Schema(
     }
 );
 
-module.exports = model('Recordatorio', RecordatorioSchemaSchema);
+module.exports = model('Recordatorio', RecordatorioSchema);
