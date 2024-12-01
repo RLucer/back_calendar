@@ -64,5 +64,5 @@ app.get('/', (req, res) => {
 //* Escuchar peticiones
 app.listen(process.env.PORT, async () =>{
     await initApp(); // Llama al método aquí
-    console.log(`Servidor corriendo en puerto ${process.env.PORT}`)
+    console.log(`Servidor corriendo en puerto ${process.env.PORT} todo OK...`)
 })
