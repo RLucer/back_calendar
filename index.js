@@ -55,7 +55,7 @@ app.use( '/api/whatsapp', require('./routes/whatsappRoutes') );
 // });
 
 app.get('/', (req, res) => {
-    res.send('api calendar funcionando ok');
+    res.send('api calendar funcionando todo ok');
 })
 
 
