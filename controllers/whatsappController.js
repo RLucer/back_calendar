@@ -19,6 +19,7 @@ const sendWhatsAppMessage = async (req, res) => {
         }
         //recibo datos y creo un mensaje ordenado
         const mensaje = `Hola, se te agendo una reunion..:\n\n` +
+            `📅 Evento: ${message.name}\n` +
             `📅 Fecha: ${message.date}\n` +
             `🕒 Hora: ${message.time}\n` +
             `📍 Lugar: ${message.location || 'Virtual'}\n\n` +
@@ -40,6 +41,7 @@ const scheduleWhatsAppReminder = (req, res) => {
 
     try {
         const mensaje = `Hola, recuerda que tienes una reunión agendada:\n\n` +
+            `📅 Evento: ${message.name}\n` +
             `📅 Fecha: ${message.date}\n` +
             `🕒 Hora: ${message.time}\n` +
             `📍 Lugar: ${message.location || 'Virtual'}\n\n` +
@@ -69,7 +71,7 @@ const getAllScheduledJobs = (req, res) => {
         });
     }
 };
-const getAllJobsDataBase= (req, res) => {
+const getAllJobsDataBase = (req, res) => {
     try {
         const jobs = loadJobsFromDatabase(); // consulta lo agengado en node no base de datos
         res.status(200).json({
@@ -91,5 +93,5 @@ module.exports = {
     scheduleWhatsAppReminder,
     getAllScheduledJobs,
     getAllJobsDataBase,
-   
+
 };

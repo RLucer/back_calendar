@@ -3,7 +3,7 @@
 */
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { obtenerEquipos, crearEquipo, actualizarEquipo, 
+const { obtenerEquipos, obtenerEquipo,crearEquipo, actualizarEquipo, 
          agregarParticipanteAEquipo, eliminarParticipanteAEquipo,
         eliminarEquipo } = require('../controllers/teams');
 const { validarJWT } = require('../middlewares/validar-jwt');
@@ -16,6 +16,7 @@ const { isDate } = require('../helpers/isDate');
 router.use(validarJWT);
 
 router.get('/', obtenerEquipos);
+router.get('/:equipoId', obtenerEquipo);
 
 //* Crear evento
 // router.post('/',

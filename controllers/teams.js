@@ -13,6 +13,36 @@ const obtenerEquipos = async (req, res = response) => {
     })
 }
 
+
+const obtenerEquipo = async (req, res = response) => {
+    try {
+        // Extrae el ID del equipo de los parámetros de la solicitud
+        const { equipoId } = req.params;
+
+        // Busca el equipo por su ID y popula los participantes
+        const equipo = await Equipo.findById(equipoId).populate('participants');
+
+        if (!equipo) {
+            return res.status(404).json({
+                ok: false,
+                msg: 'Equipo no encontrado'
+            });
+        }
+
+        return res.json({
+            ok: true,
+            equipo
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            ok: false,
+            msg: 'Error al obtener el equipo'
+        });
+    }
+};
+
+
 const crearEquipo = async (req, res = response) => {
     const equipo = new Equipo(req.body)
 
@@ -202,6 +232,7 @@ const eliminarEquipo = async (req, res) => {
 
 module.exports = {
     obtenerEquipos,
+    obtenerEquipo,
     crearEquipo,
     actualizarEquipo,
     agregarParticipanteAEquipo,

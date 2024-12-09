@@ -5,6 +5,10 @@ var clientReady = true; // Estado del cliente
 
 // Inicializar el cliente de WhatsApp
 const client = new Client({
+    puppeteer: {
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    },
     authStrategy: new LocalAuth(), // Persistencia local
 });
 
@@ -12,6 +16,12 @@ const client = new Client({
 client.on('qr', (qr) => {
     console.log('Escanea este código QR con tu WhatsApp:');
     qrcode.generate(qr, { small: true });
+});
+
+client.on('disconnected', (reason) => {
+    console.error('Cliente desconectado:', reason);
+    // Reintentar conexión
+    client.initialize();
 });
 
 // Evento cuando el cliente está listo
@@ -99,6 +109,9 @@ const sendMessage = async (phones, message) => {
 //         throw error;
 //     }
 // };
+client.on('message', (msg) => console.log('Mensaje recibido:', msg));
+client.on('ready', () => console.log('Cliente listo para enviar mensajes.'));
+client.on('auth_failure', (msg) => console.error('Error de autenticación:', msg));
 
 client.initialize();
 

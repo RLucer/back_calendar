@@ -1,3 +1,36 @@
-2024/12/01-00:34:34.119 a203 Reusing MANIFEST /Users/ricardo_lucero/calendar/backend-calendar-app/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
-2024/12/01-00:34:34.120 a203 Recovering log #97
-2024/12/01-00:34:34.120 a203 Reusing old log /Users/ricardo_lucero/calendar/backend-calendar-app/.wwebjs_auth/session/Default/Local Storage/leveldb/000097.log 
+2024/12/05-12:32:55.266 b103 Reusing MANIFEST /Users/ricardo_lucero/calendar/backend-calendar-app/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
+2024/12/05-12:32:55.267 b103 Recovering log #127
+2024/12/05-12:32:55.267 b103 Reusing old log /Users/ricardo_lucero/calendar/backend-calendar-app/.wwebjs_auth/session/Default/Local Storage/leveldb/000127.log 
+2024/12/05-16:53:18.415 f207 Level-0 table #131: started
+2024/12/05-16:53:18.424 f207 Level-0 table #131: 15920 bytes OK
+2024/12/05-16:53:18.442 f207 Delete type=0 #127
+2024/12/05-16:53:18.444 f207 Compacting 4@0 + 1@1 files
+2024/12/05-16:53:18.453 f207 Generated table #132@0: 837 keys, 13139 bytes
+2024/12/05-16:53:18.453 f207 Compacted 4@0 + 1@1 files => 13139 bytes
+2024/12/05-16:53:18.461 f207 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/12/05-16:53:18.463 f207 Delete type=2 #128
+2024/12/05-16:53:18.463 f207 Delete type=2 #122
+2024/12/05-16:53:18.463 f207 Delete type=2 #120
+2024/12/05-16:53:18.463 f207 Delete type=2 #131
+2024/12/05-16:53:18.463 f207 Delete type=2 #125
+2024/12/06-12:08:57.019 1dc9b Level-0 table #134: started
+2024/12/06-12:08:57.027 1dc9b Level-0 table #134: 15047 bytes OK
+2024/12/06-12:08:57.037 1dc9b Delete type=0 #130
+2024/12/07-23:18:40.481 b43b Level-0 table #136: started
+2024/12/07-23:18:40.487 b43b Level-0 table #136: 15697 bytes OK
+2024/12/07-23:18:40.496 b43b Delete type=0 #133
+2024/12/08-21:59:38.459 2463 Level-0 table #138: started
+2024/12/08-21:59:38.466 2463 Level-0 table #138: 13746 bytes OK
+2024/12/08-21:59:38.474 2463 Delete type=0 #135
+2024/12/09-11:17:34.374 b64f Level-0 table #140: started
+2024/12/09-11:17:34.390 b64f Level-0 table #140: 15613 bytes OK
+2024/12/09-11:17:34.398 b64f Delete type=0 #137
+2024/12/09-11:17:34.406 b64f Compacting 4@0 + 1@1 files
+2024/12/09-11:17:34.414 b64f Generated table #141@0: 844 keys, 13334 bytes
+2024/12/09-11:17:34.414 b64f Compacted 4@0 + 1@1 files => 13334 bytes
+2024/12/09-11:17:34.421 b64f compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/12/09-11:17:34.422 b64f Delete type=2 #138
+2024/12/09-11:17:34.422 b64f Delete type=2 #140
+2024/12/09-11:17:34.422 b64f Delete type=2 #136
+2024/12/09-11:17:34.422 b64f Delete type=2 #134
+2024/12/09-11:17:34.422 b64f Delete type=2 #132
