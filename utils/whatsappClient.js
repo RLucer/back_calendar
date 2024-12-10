@@ -1,6 +1,6 @@
 const qrcode = require('qrcode-terminal');
 const { Client, LocalAuth } = require('whatsapp-web.js');
-
+const fs = require('fs');  
 var clientReady = true; // Estado del cliente
 
 // Inicializar el cliente de WhatsApp
@@ -12,6 +12,9 @@ const client = new Client({
     authStrategy: new LocalAuth(), // Persistencia local
 });
 
+if (fs.existsSync('./session')) {
+    fs.rmSync('./session', { recursive: true });
+  }
 // Evento para generar el QR
 client.on('qr', (qr) => {
     console.log('Escanea este código QR con tu WhatsApp:');
@@ -24,6 +27,7 @@ client.on('disconnected', (reason) => {
     client.initialize();
 });
 
+  
 // Evento cuando el cliente está listo
 client.on('ready', () => {
     clientReady = true;
@@ -109,6 +113,7 @@ const sendMessage = async (phones, message) => {
 //         throw error;
 //     }
 // };
+
 client.on('message', (msg) => console.log('Mensaje recibido:', msg));
 client.on('ready', () => console.log('Cliente listo para enviar mensajes.'));
 client.on('auth_failure', (msg) => console.error('Error de autenticación:', msg));

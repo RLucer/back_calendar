@@ -1,6 +1,0 @@
-2024/12/05-09:46:17.891 a403 Reusing MANIFEST /Users/ricardo_lucero/calendar/backend-calendar-app/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
-2024/12/05-09:46:17.892 a403 Recovering log #124
-2024/12/05-09:46:17.893 a403 Reusing old log /Users/ricardo_lucero/calendar/backend-calendar-app/.wwebjs_auth/session/Default/Local Storage/leveldb/000124.log 
-2024/12/05-09:59:22.633 f607 Level-0 table #128: started
-2024/12/05-09:59:22.643 f607 Level-0 table #128: 15105 bytes OK
-2024/12/05-09:59:22.655 f607 Delete type=0 #124

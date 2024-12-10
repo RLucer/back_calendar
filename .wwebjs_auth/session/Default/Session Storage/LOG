@@ -1,4 +1,0 @@
-2024/12/05-12:32:56.322 b103 Reusing MANIFEST /Users/ricardo_lucero/calendar/backend-calendar-app/.wwebjs_auth/session/Default/Session Storage/MANIFEST-000001
-2024/12/05-12:32:56.322 b103 Recovering log #3
-2024/12/05-12:32:56.323 b103 (ignoring error) /Users/ricardo_lucero/calendar/backend-calendar-app/.wwebjs_auth/session/Default/Session Storage/000003.log: dropping 12 bytes; Corruption: missing start of fragmented record(2)
-2024/12/05-12:32:56.323 b103 Reusing old log /Users/ricardo_lucero/calendar/backend-calendar-app/.wwebjs_auth/session/Default/Session Storage/000003.log 
