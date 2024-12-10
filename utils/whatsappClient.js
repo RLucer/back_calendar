@@ -7,7 +7,12 @@ var clientReady = true; // Estado del cliente
 const client = new Client({
     puppeteer: {
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        args: [
+            '--no-sandbox', // Desactiva el sandbox para entornos sin GUI
+            '--disable-setuid-sandbox', // Otra opción para desactivar el sandbox
+            '--disable-gpu', // Desactiva el uso de la GPU, no es necesario en servidores sin entorno gráfico
+            '--remote-debugging-port=9222', // Habilita el puerto de depuración remota (opcional)
+          ],     
     },
     authStrategy: new LocalAuth(), // Persistencia local
 });
