@@ -14,7 +14,7 @@ const client = new Client({
             '--remote-debugging-port=9222', // Habilita el puerto de depuración remota (opcional)
           ],     
     },
-    authStrategy: new LocalAuth(), // Persistencia local
+   // authStrategy: new LocalAuth(), // Persistencia local
 });
 
 if (fs.existsSync('./session')) {
